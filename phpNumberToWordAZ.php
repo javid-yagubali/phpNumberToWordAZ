@@ -26,3 +26,9 @@ function toWords($number) {
         
 		return trim($nt);
 }
+
+$num = rand(1,100000000000000000);
+echo($num);
+echo "<br>";
+echo toWords($num);
+echo "<br>";
