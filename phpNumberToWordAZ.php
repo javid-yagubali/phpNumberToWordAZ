@@ -9,7 +9,9 @@ function toWords($number) {
 			array("", " bir yüz", " iki yüz", " üç yüz", " dörd yüz", " beş yüz", " altı yüz", " yeddi yüz", " səkkiz yüz", " doqquz yüz"),
 			array("", " bir", " iki", " üç", " dörd", " beş", " altı", " yeddi", " səkkiz", " doqquz"),
 			array("", " on", " iyirmi", " otuz", " qırx", " əlli", " altmış", " yetmiş", " səksən", " doxsan"),
-		);
+        );
+        
+        $thousands = array("", " min", " milyon", " milyard", " trilyon", " kvadrilyon", " quintillion", " sekstilon", " septilyon", " oktalon", " nonalon", " dekalon", " endekalon", " dodekalon");
 		
 		
 		for($pos=$narrlen; $pos>0; $pos--) {
@@ -17,12 +19,8 @@ function toWords($number) {
 			$index = $pos % 3;			
 			$nt = $nt . $numnames[$index][$n];
 			
-			if($pos == 4) {
-				$nt = $nt . " min";
-			}
-			
-			if($pos == 7) {
-				$nt = $nt . " milyon";
+			if($pos % 3 == 1) {
+				$nt = $nt . $thousands[$pos/3];
 			}
         }
         
